@@ -4,26 +4,26 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HomeController {
 
     @RequestMapping("/")
     public String home() {
-        return "index.jsp";
+        return "index";
     }
 
     @RequestMapping("add")
-    public String add(HttpServletRequest req) {
+    public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j) {
 
-        int i = Integer.parseInt(req.getParameter("num1"));
-        int j = Integer.parseInt(req.getParameter("num2"));
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("result");
 
         int num3 = i + j;
+        mv.addObject("num3", num3);
 
-        HttpSession session = req.getSession();
-        session.setAttribute("num3", num3);
-
-        return "result.jsp";
+        return mv;
     }
 }
