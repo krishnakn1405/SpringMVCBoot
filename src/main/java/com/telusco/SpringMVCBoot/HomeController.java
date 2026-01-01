@@ -14,6 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
+    @ModelAttribute
+    public void modelData(Model m) {
+        m.addAttribute("name", "Aliens");
+    }
+
     @RequestMapping("/")
     public String home() {
         return "index";
@@ -29,7 +34,7 @@ public class HomeController {
     }
 
     @RequestMapping("addAlien")
-    public String addAlien(@ModelAttribute("a1") Alien a) {
+    public String addAlien(@ModelAttribute Alien a) {
         return "result";
     }
 }
