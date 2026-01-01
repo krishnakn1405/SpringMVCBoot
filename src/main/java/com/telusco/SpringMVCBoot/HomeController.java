@@ -1,5 +1,6 @@
 package com.telusco.SpringMVCBoot;
 
+import com.telusco.SpringMVCBoot.model.Alien;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
@@ -22,6 +23,18 @@ public class HomeController {
 
         int num3 = i + j;
         m.addAttribute("num3", num3);
+
+        return "result";
+    }
+
+    @RequestMapping("addAlien")
+    public String addAlien(@RequestParam("aid") int aid, @RequestParam("aname") String aname, Model m) {
+
+        Alien a = new Alien();
+        a.setAid(aid);
+        a.setAname(aname);
+
+        m.addAttribute("alien", a);
 
         return "result";
     }

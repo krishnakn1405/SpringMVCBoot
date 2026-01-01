@@ -8,6 +8,6 @@
 </head>
 <body>
 
-    <h2>Result is: ${num3}</h2>
+    <h2>Result is: ${alien}</h2>
 </body>
 </html>
