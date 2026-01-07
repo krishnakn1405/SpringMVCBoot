@@ -9,11 +9,13 @@
 <body>
     <h1>Welcome to Telusko</h1>
 
-    <form action="addAlien">
+    <form action="addAlien" method="post">
         Enter your id: <input type="text" name="aid"><br>
         Enter your name: <input type="text" name="aname"><br>
         <input type="submit" />
     </form>
+
+
 
 </body>
 </html>
