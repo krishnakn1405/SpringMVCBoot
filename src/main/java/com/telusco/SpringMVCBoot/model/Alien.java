@@ -1,9 +1,17 @@
 package com.telusco.SpringMVCBoot.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@javax.persistence.Entity
 public class Alien {
 
+    @javax.persistence.Id
     private int aid;
     private String aname;
+
+    public Alien() {
+    }
 
     public Alien(int aid, String aname) {
         this.aid = aid;
