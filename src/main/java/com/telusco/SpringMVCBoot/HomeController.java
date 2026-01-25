@@ -4,12 +4,7 @@ import com.telusco.SpringMVCBoot.model.Alien;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
-
-import java.util.Arrays;
-import java.util.List;
 
 @Controller
 public class HomeController {
@@ -31,7 +26,6 @@ public class HomeController {
     public String getAliens(Model m) {
 
         m.addAttribute("result", repo.findAll());
-
         return "showAliens";
     }
 
@@ -39,12 +33,20 @@ public class HomeController {
     public String getAlien(@RequestParam int aid, Model m) {
 
         m.addAttribute("result", repo.getOne(aid));
+        return "showAliens";
+    }
 
+    @GetMapping("getAlienByName")
+    public String getAlienByName(@RequestParam String aname, Model m) {
+
+        m.addAttribute("result", repo.findByAnameOrderByAidDesc(aname));
         return "showAliens";
     }
 
     @PostMapping(value="addAlien")
     public String addAlien(@ModelAttribute Alien a) {
+
+        repo.save(a);
         return "result";
     }
 }

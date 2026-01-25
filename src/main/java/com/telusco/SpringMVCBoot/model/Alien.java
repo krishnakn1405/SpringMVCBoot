@@ -3,10 +3,10 @@ package com.telusco.SpringMVCBoot.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@javax.persistence.Entity
+@Entity
 public class Alien {
 
-    @javax.persistence.Id
+    @Id
     private int aid;
     private String aname;
 
