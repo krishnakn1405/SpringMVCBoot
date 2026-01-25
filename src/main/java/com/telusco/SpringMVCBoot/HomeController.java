@@ -39,7 +39,7 @@ public class HomeController {
     @GetMapping("getAlienByName")
     public String getAlienByName(@RequestParam String aname, Model m) {
 
-        m.addAttribute("result", repo.findByAnameOrderByAidDesc(aname));
+        m.addAttribute("result", repo.find(aname));
         return "showAliens";
     }
 
